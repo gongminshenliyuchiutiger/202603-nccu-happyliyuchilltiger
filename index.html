@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI及數位科技如何幫助班級經營與行政雜務？｜邱俐瑜老師</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <style>
+        .truncate-two-lines { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        @media (max-width: 640px) {
+            .sm\:truncate-none { -webkit-line-clamp: unset !important; line-clamp: unset !important; display: block !important; }
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap');
+        body { font-family: 'Noto Sans TC', system-ui, sans-serif; line-height: 1.7; }
+        .neon-glow { transition: all 0.3s ease; }
+        .neon-glow:hover {
+            filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 25px #00ffff) drop-shadow(0 0 35px #ffff00);
+            transform: scale(1.15) rotate(3deg);
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0%,100% {transform:translate(1px,1px) rotate(0deg);}
+            10% {transform:translate(-1px,-2px) rotate(-2deg);}
+            20% {transform:translate(-3px,0px) rotate(2deg);}
+            30% {transform:translate(3px,2px) rotate(0deg);}
+            40% {transform:translate(1px,-1px) rotate(2deg);}
+            50% {transform:translate(-1px,2px) rotate(-2deg);}
+            60% {transform:translate(-3px,1px) rotate(0deg);}
+            70% {transform:translate(3px,2px) rotate(-2deg);}
+            80% {transform:translate(-1px,-1px) rotate(2deg);}
+            90% {transform:translate(1px,2px) rotate(0deg);}
+        }
+        .section-card { transition: all 0.3s ease; }
+        .section-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+        .gem-badge { background: linear-gradient(135deg, #10b981, #34d399); color: white; padding: 4px 12px; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; }
+        .draggable { cursor: grab; user-select: none; }
+        .toc a { transition: all 0.2s ease; }
+        .toc a:hover { color: #10b981; padding-left: 12px; }
+        details summary { cursor: pointer; font-weight: 600; }
+        pre { background: #1f2937; color: #34d399; padding: 1.25rem; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; white-space: pre-wrap; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { padding: 1rem; border: 1px solid #e5e7eb; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
+        html { scroll-behavior: smooth; }
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            margin-left: 8px;
+            border-radius: 6px;
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s;
+            vertical-align: middle;
+        }
+        .copy-btn:hover {
+            background: #e2e8f0;
+            color: #10b981;
+        }
+        .copy-btn.copied {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        .prompt-container {
+            position: relative;
+        }
+        pre.prompt-container {
+            padding-right: 48px;
+        }
+        pre .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #94a3b8;
+        }
+        pre .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-white to-teal-50 text-neutral-800">
+
+<!-- HEADER -->
+<header class="bg-white shadow-lg sticky top-0 z-50 border-b-2 border-emerald-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-2 sm:py-4 flex flex-col lg:flex-row items-center justify-between gap-2 lg:gap-4">
+        <div class="flex items-center gap-3 sm:gap-6 text-left w-full lg:w-auto">
+            <div class="bg-emerald-50 p-2 rounded-xl sm:bg-transparent sm:p-0">
+                <i class="fa-solid fa-fish text-2xl sm:text-5xl text-emerald-600"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+                <h1 class="text-lg sm:text-3xl lg:text-4xl font-bold tracking-tighter text-emerald-700 leading-tight">AI及數位科技如何幫助班級經營與行政雜務？</h1>
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <p class="text-sm sm:text-xl text-emerald-600 font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-chalkboard-teacher text-xs sm:text-lg"></i>邱俐瑜老師
+                    </p>
+                    <span class="text-neutral-300 text-xs sm:text-base">|</span>
+                    <p class="text-[10px] sm:text-sm text-neutral-500 font-medium truncate">新北市立雙溪高中 註冊組長</p>
+                </div>
+            </div>
+        </div>
+        <a href="https://www.facebook.com/happyliyuchilltiger" target="_blank" class="w-full lg:w-auto flex items-center justify-center gap-2 bg-emerald-600 text-white hover:bg-emerald-700 px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-md active:scale-95">
+            <i class="fa-brands fa-facebook text-lg sm:text-3xl"></i>
+            <span class="text-xs sm:text-base">快樂鯉魚秋老虎</span>
+        </a>
+    </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-10 flex flex-col lg:flex-row gap-6 lg:gap-10">
+
+<!-- 側邊導航 (Desktop Only) -->
+<nav class="hidden lg:block w-80 flex-shrink-0 bg-white rounded-3xl shadow-xl p-8 sticky top-24 self-start max-h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar">
+    <h3 class="font-bold text-emerald-700 mb-6 text-xl flex items-center gap-2"><i class="fa-solid fa-list"></i> 講義目錄</h3>
+    <div class="toc space-y-2 text-sm">
+        <a href="#part1" class="block py-3 px-5 hover:bg-emerald-50 rounded-2xl">第一部分　班級經營的核心與挑戰</a>
+        <a href="#orient1" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">面向一：常規建立與環境管理</a>
+        <a href="#orient2" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">面向二：課堂動機與秩序管理</a>
+        <a href="#orient3" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">面向三：班級氣氛與人際互動</a>
+        <a href="#orient4" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">面向四：學生自治與幹部培力</a>
+        <a href="#orient5" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">面向五：輔導與個案管教</a>
+        <a href="#orient6" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">面向六：親師溝通與合作</a>
+        <a href="#part2" class="block py-3 px-5 hover:bg-emerald-50 rounded-2xl mt-4">第二部分　化阻力為助力——教師兼行政的駭客級降維打擊</a>
+        <a href="#teachaff" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(教)教學組</a>
+        <a href="#reg" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(教)註冊組</a>
+        <a href="#equip" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(教)設備組</a>
+        <a href="#train" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(學)訓育組</a>
+        <a href="#studaff" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(學)生輔組／生教組</a>
+        <a href="#health" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(學)衛生組</a>
+        <a href="#pe" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(學)體育組</a>
+        <a href="#counsel" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(輔)輔導組</a>
+        <a href="#data" class="block py-2 px-5 hover:bg-emerald-50 rounded-2xl ml-6">(輔)資料組／特教組</a>
+        <a href="#part3" class="block py-3 px-5 hover:bg-emerald-50 rounded-2xl mt-4">第三部分　神兵利器分析</a>
+        <a href="#part4" class="block py-3 px-5 hover:bg-emerald-50 rounded-2xl">第四部分　AI時代的教育倫理與哲學反思</a>
+        <a href="#heart" class="block py-3 px-5 hover:bg-emerald-50 rounded-2xl">快樂鯉魚AI心法 &amp; 期許</a>
+    </div>
+</nav>
+
+<!-- Mobile TOC Button & Drawer -->
+<div class="lg:hidden">
+    <button id="toc-toggle" class="fixed bottom-6 right-6 z-[60] bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition-transform active:scale-95 border-2 border-white">
+        <i class="fa-solid fa-list-ul"></i>
+    </button>
+    
+    <div id="toc-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] hidden transition-opacity duration-300">
+        <div id="toc-drawer" class="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-white p-6 shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300 rounded-l-3xl">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h3 class="font-bold text-emerald-700 text-xl flex items-center gap-2"><i class="fa-solid fa-list"></i> 講義目錄</h3>
+                <button id="toc-close" class="text-neutral-500 text-2xl p-2"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="mobile-toc-links" class="toc space-y-4 text-base pb-10">
+                <!-- Links will be cloned via JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 主內容 -->
+<main class="flex-1 w-full max-w-full lg:max-w-4xl min-w-0">
+
+<!-- 第一部分 -->
+<section id="part1" class="scroll-mt-16">
+    <div class="flex items-center gap-3 mb-4">
+        <i class="fa-solid fa-layer-group text-2xl sm:text-4xl text-emerald-600"></i>
+        <div>
+            <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-3 sm:px-6 py-1 rounded-3xl text-[10px] sm:text-sm font-bold">第一部分</span>
+            <h2 class="text-2xl sm:text-4xl font-bold text-emerald-700">班級經營的核心與挑戰</h2>
+        </div>
+    </div>
+
+
+    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl mb-12">
+        <h3 class="text-xl sm:text-2xl font-semibold mb-4 flex items-center gap-3"><i class="fa-solid fa-circle-question"></i> (A) 什麼是「班級經營」？</h3>
+        <p class="text-base sm:text-lg leading-relaxed">是指教師為了建立並維持一個有助於學習的環境，所進行的一切規劃與行動。它不僅僅是「管秩序」，更包含了建立常規、促進良好的人際互動、引發學習動機、以及處理學生的情緒與行為問題。</p>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl mb-12">
+        <h3 class="text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-3"><i class="fa-solid fa-users"></i> (B) 導師 vs. 任課老師，班級經營的盲點與留意點</h3>
+        <div class="overflow-x-auto -mx-6 sm:mx-0">
+            <table class="w-full border-collapse text-sm sm:text-base min-w-[600px] sm:min-w-0">
+                <thead class="bg-emerald-700 text-white"><tr><th class="p-3 sm:p-5 text-left">職位</th><th class="p-3 sm:p-5 text-left">導師</th><th class="p-3 sm:p-5 text-left">任課老師</th></tr></thead>
+                <tbody class="divide-y">
+                    <tr><td class="p-3 sm:p-5 font-medium bg-neutral-50">角色比喻</td><td class="p-3 sm:p-5">班級 CEO</td><td class="p-3 sm:p-5">專案經理</td></tr>
+                    <tr><td class="p-3 sm:p-5 font-medium bg-neutral-50">核心目標</td><td class="p-3 sm:p-5">全人發展與班級氣氛</td><td class="p-3 sm:p-5">教學效能與課堂秩序</td></tr>
+                    <tr><td class="p-3 sm:p-5 font-medium bg-neutral-50">經營戰略</td><td class="p-3 sm:p-5">打造心理安全感、建立班級品牌與長期凝聚力。</td><td class="p-3 sm:p-5">高效達成認知與技能目標，控管課堂節奏。</td></tr>
+                    <tr><td class="p-3 sm:p-5 font-medium bg-neutral-50">留意重點</td><td class="p-3 sm:p-5">建立長期的班級文化與歸屬感。需處理學生身心狀況、同儕衝突，以及繁重的親師溝通。導師是班級的靈魂，須留意公平性與情感連結。</td><td class="p-3 sm:p-5">確保該堂課的學習目標達成。需留意跨班級的規則一致性、如何快速吸引學生注意力，以及遇到干擾教學行為時的明快處置，避免影響教學進度。</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-6 text-sm text-neutral-500">高階挑戰：處理系統性問題（如集體排擠、階級固化）、高強度的危機處理（自傷、中輟）、資源整合（親師生溝通樞紐）、親師生多方溝通的動態平衡。跨班級的「差異化教學」設計、快速建立跨班的權威與信任、應對不同班風的切換疲勞。</div>
+    </div>
+
+    <h3 class="text-3xl font-bold text-emerald-700 mb-8 flex items-center gap-3"><i class="fa-solid fa-compass"></i> (C) 班級經營的六大面向與AI 深度應用實例</h3>
+
+    <!-- 面向一 -->
+    <div id="orient1" class="section-card bg-white rounded-3xl p-6 sm:p-10 mb-10 shadow-xl">
+        <div class="flex gap-4 items-center mb-6"><span class="gem-badge">面向一</span><h4 class="text-xl sm:text-2xl font-bold">常規建立與環境管理（法治與底線）</h4></div>
+        <p class="mb-8 text-base sm:text-lg"><strong>深層困境：</strong>由上而下的威權規定已失效。如何建立「具備邏輯與共識」的常規，且不讓自己淪為整天抓違規的警察？</p>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-8">
+            <h5 class="font-bold text-xl mb-4 flex items-center gap-3"><i class="fa-solid fa-robot"></i>AI 實戰：NotebookLM 打造「班級專屬維基百科」</h5>
+            <ul class="space-y-4 text-base">
+                <li><strong>情境：</strong>學校有複雜的請假規定、手機管理辦法、以及你個人制定的「學習契約」與「平時成績計算方式」。</li>
+                <li><strong>作法：</strong>將這些繁雜的文件（PDF/Word/校規網頁）全部丟進NotebookLM，生成一個專屬的指引手冊。</li>
+                <li><strong>應用：</strong>開學第一週，讓學生分組用NotebookLM 進行「情境解謎」。例如向AI 提問：「如果小明週三下午曠課去打網咖，週四又裝病請假，請根據指南算出他會被扣多少操行分數？會啟動什麼輔導機制？」透過AI 引導學生主動探索規則，建立法治與責任觀念。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 面向二 -->
+    <div id="orient2" class="section-card bg-white rounded-3xl p-6 sm:p-10 mb-10 shadow-xl">
+        <div class="flex gap-4 items-center mb-6"><span class="gem-badge">面向二</span><h4 class="text-xl sm:text-2xl font-bold">課堂動機與秩序管理（教學即管教）</h4></div>
+        <p class="mb-8 text-base sm:text-lg"><strong>深層困境：</strong>抖音世代注意力極短，傳統單向講述容易導致學生分心、睡覺或滑手機。教師備課時間有限，如何快速設計出能抓住不同程度學生的課堂活動，讓「無聊/聽不懂而搗亂」的機率降到最低？</p>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-6 sm:p-8">
+            <h5 class="font-bold text-xl mb-4 flex items-center gap-3"><i class="fa-solid fa-robot"></i>AI 實戰：Gemini 打造「差異化教學與沉浸式互動設計師」</h5>
+            <ul class="space-y-4 text-base">
+                <li><strong>情境：</strong>下午第一節課，要教枯燥的學科概念，或是班上雙峰現象嚴重，有人吃不飽、有人跟不上而開始放棄干擾。</li>
+                <li><strong>作法：</strong>運用AI 快速生成「吸引注意力的開場」與「差異化任務」。</li>
+                <li><strong>指令範例：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一節國二歷史/理化老師，下午第一節課要教『工業革命/牛頓定律』。學生通常在這個時段精神不濟。請幫我設計一個3 分鐘的『沉浸式情境開場』讓他們瞬間清醒。接著，針對班上『高成就』、『一般』、『低成就/需視覺輔助』的學生，分別設計3 個不同層次但核心概念相同的提問，讓每個學生在小組討論中『有事可做、有話可說』，避免他們因無聊而發呆或講話。」</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 面向三 -->
+    <div id="orient3" class="section-card bg-white rounded-3xl p-10 mb-10 shadow-xl">
+        <div class="flex gap-4 items-center mb-6"><span class="gem-badge">面向三</span><h4 class="text-2xl font-bold">班級氣氛與人際互動（歸屬感與安全感）</h4></div>
+        <p class="mb-8 text-lg"><strong>深層困境：</strong>班級出現隱性霸凌、小團體撕裂，或是高三學測前的集體焦慮。教師難以用傳統「班會說教」來改變班級氛圍。</p>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-8">
+            <h5 class="font-bold text-xl mb-4 flex items-center gap-3"><i class="fa-solid fa-robot"></i>AI 實戰：Gemini 設計「修復式圓圈」提問</h5>
+            <ul class="space-y-4 text-base">
+                <li><strong>情境：</strong>班上發生了一起嚴重的網路匿名攻擊事件，氣氛降至冰點。你需要開班會但不知從何開口。</li>
+                <li><strong>作法：</strong>利用AI 構建符合心理學的漸進式引導對話。</li>
+                <li><strong>指令範例：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「班上近期發生匿名IG 帳號攻擊同學的事件，雖然已查出加害者並進入行政程序，但班級氣氛充滿猜忌。我預計在班會課進行40 分鐘的『修復式圓圈』對話。請幫我設計4 個漸進式的提問（從破冰、建立安全感、探討事件感受、到凝聚未來共識），提問需具備開放性、不帶評判色彩，並提供教師在引導時的『避雷注意事項』。」</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 面向四 -->
+    <div id="orient4" class="section-card bg-white rounded-3xl p-10 mb-10 shadow-xl">
+        <div class="flex gap-4 items-center mb-6"><span class="gem-badge">面向四</span><h4 class="text-2xl font-bold">學生自治與幹部培力（賦權與領導）</h4></div>
+        <p class="mb-8 text-lg"><strong>深層困境：</strong>老師常抱怨幹部叫不動、辦事不力，最後變成「校長兼撞鐘」自己做完。如何把責任還給學生，培養真正能幫忙運作班級的領導團隊？</p>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-8">
+            <h5 class="font-bold text-xl mb-4 flex items-center gap-3"><i class="fa-solid fa-robot"></i>AI 實戰：Gemini 的Gem 打造「班級幹部專屬AI教練」</h5>
+            <p class="mb-4"><strong>作法：</strong>教師在Gemini 中創建一個專屬的Gem（例如命名為：「幹部神隊友」），並輸入系統指令。</p>
+            <pre class="prompt-container"><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「你現在是一位『班級幹部的超強幕僚與人際溝通教練』。當學生（班級幹部）向你求助時，請遵守以下原則：
+1. 先同理他們『夾在老師與同學之間』的挫折感。
+2. 不要直接給單一標準答案，而是提供2-3 個不同風格的策略（例如：幽默化解法、堅定表達法、示弱求助法）。
+3. 語言要貼近青少年的次文化用語，不要像老古板說教。
+4. 若他們需要產出文件（如：班級公約、活動企劃），請用引導填空的方式協助他們完成草案，語氣要輕鬆、有趣。」</pre>
+            <p class="mt-4"><strong>應用實例：</strong>
+<br>1. 風紀股長輸入：「早自習大家一直講話，我開口叫他們安靜，結果被幾個男生嗆『你管太多』。我覺得很煩不想管了，該怎麼辦？」
+<br>2. Gem 教練回覆：「辛苦了！當風紀真的是吃力不討好的超級屎缺，被嗆『管太多』絕對會讓人瞬間火大，畢竟你也是為了不讓班上被扣分啊！先給你一個大大的respect。<br>
+針對這種狀況，教練給你三招『不破壞感情但能維持秩序』的反擊策略，你看哪個最順口
+<br>1.【幽默自嘲法】：『對啦我就管海邊！拜託各位大佬給我個面子，不然等下換班導來管，大家日子更難過～』(把炮口一致對外)<br>2.【誠懇示弱法】：『我也很不想要一直碎碎念啊，但這是我的工作，拜託大家體諒一下，安靜十分鐘就好！』<br>3.【轉移焦點法】：走到講話最大聲的同學旁邊，輕輕敲一下桌子說：『欸，聊這麼開心，等一下下課再跟我說，現在先借我一點安靜啦。』…」</p>
+        </div>
+    </div>
+
+    <!-- 面向五 -->
+    <div id="orient5" class="section-card bg-white rounded-3xl p-10 mb-10 shadow-xl">
+        <div class="flex gap-4 items-center mb-6"><span class="gem-badge">面向五</span><h4 class="text-2xl font-bold">輔導與個案管教（特殊需求與行為改變）</h4></div>
+        <p class="mb-8 text-lg"><strong>深層困境：</strong>面對特殊需求學生，傳統的「獎懲」無效。需要應用專業的「正向行為支持」與「行為功能分析」。</p>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-8">
+            <h5 class="font-bold text-xl mb-4 flex items-center gap-3"><i class="fa-solid fa-robot"></i>AI 實戰：Gemini 協助「行為功能假設與策略發想」</h5>
+            <p class="text-base"><strong>情境：</strong>遇到棘手個案，教師快要情緒崩潰，需要客觀的介入策略。<br><strong>作法</strong>：向AI 輸入詳細但去識別化的行為描述（A-B-C 模型：前因-行為-後果）。<br><strong>指令範例：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我有一位國八學生（化名小安），【前因】每次遇到需要大量書寫的寫作任務時，【行為】他就會開始大聲講地獄梗笑話干擾同學，【後果】最後被我請到教室外冷靜，從而逃避了寫作。請以『行為功能分析』的角度，推測他行為背後的可能目的（如：逃避任務、獲取關注），並提供3個不影響教學進度的『前事控制策略』與『替代行為教導』方案。」</p>
+        </div>
+    </div>
+
+    <!-- 面向六 -->
+    <div id="orient6" class="section-card bg-white rounded-3xl p-10 mb-16 shadow-xl">
+        <div class="flex gap-4 items-center mb-6"><span class="gem-badge">面向六</span><h4 class="text-2xl font-bold">親師溝通與合作（公關與結盟）</h4></div>
+        <p class="mb-8 text-lg"><strong>深層困境：</strong>面對高社經地位的「直升機家長」或低社經地位的「高壓/疏離家長」，教師常陷入情緒勞動。如何在學生出狀況時，做到不卑不亢的「非暴力溝通」，將家長變成盟友而非敵人？</p>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-3xl p-8">
+            <h5 class="font-bold text-xl mb-4 flex items-center gap-3"><i class="fa-solid fa-robot"></i>AI 實戰：Gemini 的Gem 打造「親師公關危機處理大師」</h5>
+            <pre class="prompt-container"><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「你現在是一位『精通非暴力溝通(NVC)與三明治回饋法的資深公關兼教育專家』。當我（教師）輸入對學生的真實、甚至帶有情緒的抱怨時，請遵守以下原則幫我轉化為給家長的官方訊息：
+1. 先簡短接住我（老師）的情緒，給我一點支持與肯定，讓我覺得被理解。
+2. 將我提供的事件，過濾掉『主觀評價與情緒字眼』（如：態度很差、超級懶），轉化為『客觀的數據與事實描述』。
+3. 訊息結構需包含：親切問候與破冰>>客觀事實描述>>表達教師的同理與擔憂（而非指責）>>提出具體且容易執行的『親師合作行動方案』。
+4. 語氣必須：專業、溫暖、不卑不亢，讓家長感受到我們是同一個陣線的盟友。」</pre>
+            <p class="mt-4"><strong>應用實例：</strong>教師輸入：「陳小華今天又沒交數學作業，上課還在桌子底下偷滑手機，我收他手機他還瞪我，態度超級差！請家長自己管好嗎？我都快氣死了！」<br><strong>Gem 公關大師回覆：</strong>「老師辛苦了！…以下是為您擬定的LINE 訊息/聯絡簿草稿：『陳爸爸/媽媽您好…因為這與他平時平穩的表現不太一樣，我有些擔心他最近是不是遇到了學習上的瓶頸…想邀請您這週末抽空與小華聊聊他的心情…』」</p>
+        </div>
+    </div>
+</section>
+
+<!-- 第二部分 -->
+<section id="part2" class="scroll-mt-16 bg-white rounded-3xl p-6 sm:p-12 shadow-2xl mb-12">
+    <div class="flex items-center gap-3 mb-6">
+        <i class="fa-solid fa-hammer text-2xl sm:text-4xl text-teal-600"></i>
+        <div>
+            <span class="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-3 sm:px-6 py-1 rounded-3xl text-[10px] sm:text-sm font-bold">第二部分</span>
+            <h2 class="text-2xl sm:text-4xl font-bold text-teal-700">化阻力為助力</h2>
+        </div>
+    </div>
+
+    <p class="mb-8 text-lg">「身為教師，我們愛學生，愛課程，愛教學，但是為什麼要教師兼行政？」與其抱怨抗拒，不如學習如何兼顧行政。掌握科技，掌握AI，行政減量自己來！</p>
+
+    <!-- 教務處 -->
+    <div id="teachaff" class="mb-16">
+        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3"><i class="fa-solid fa-school"></i> 教務處 - 掌管教學與學籍的命脈</h3>
+        <h4 class="font-semibold mb-4">教學組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>排課與調代課安排、巡堂紀錄、辦理各項學藝競賽（語文競賽、科展、美展）、作業抽查、教師研習資訊公告。</p>
+
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 排課是每學期初的惡夢，老師不想上第一四五七節，一直來煩很歡，很想說『You Can You Up , No Can No BB !』，但是不行。<br>(2) 辦理競賽需撰寫大量計畫書、實施辦法，且每年都要推陳出新，沒梗了。<br>(3) 催繳老師的教學進度表時，語氣拿捏困難（太強硬傷和氣，太委婉沒人理）。<br>(4) 教師研習公文像是沙威瑪不斷增生，還要資訊公告，真是累鼠！</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：優雅化解「排課」情緒勒索】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將排課系統的硬性限制（如：全校總節數、兼行政減課規定）輸入，請Gemini 轉化為具備「行政高度」且「軟中帶硬」的宣導文案。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一所國中的教學組長，每學期初排課常遇到老師抱怨不想上1、4、5、7節。請幫我擬定一份給全校老師的『新學期排課原則說明』。語氣要幽默、體諒老師體力挑戰，但必須堅定傳達『排課受限於排課軟體邏輯與學生受教權，無法滿足個人化時段偏好』，請大家共體時艱。字數200字以內，讓我不用說出『You Can You Up , No Can No BB !』也能建立行政界線。請提供「三種不同語氣的版本」（例如：溫和感性版、理智客觀版、堅定嚴肅版），讓我可以根據其性格挑選。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：競賽計畫「老件翻新」變出新把戲】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將去年的實施計畫大綱複製貼上，要求Gemini 結合當年度熱門趨勢（如AI、SDGs、SEL）。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請將下方這份『去年校內科展實施計畫』大綱，更新為符合今年『AI 人工智慧與永續發展(SDGs)』趨勢的主題。請產出：1.新的實施計畫草案（包含動機、目的、徵件主題建議）2.一份要發給全校老師的150 字內部推廣文案。3.上簽給校長的公文主旨與說明段落。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：設定專屬「催繳進度表」Gem 機器人】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>在Gemini建立一個專屬「行政公關小秘書」Gem，設定其人格特質為「八面玲瓏、說話圓滑、卻能達成目標」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位擅長處理校園人際關係的行政助手。請幫我寫一封Email給全校教師，提醒他們『教學進度表繳交期限只剩3天』。語氣要能理解老師開學初被雜事淹沒的痛苦，但要明確帶出『遲交會影響全校課程備查進度，進而影響大家領取鐘點費的時間』，字數200字以內，要讓老師看完後會心一笑並乖乖繳交。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：研習公文「沙威瑪」懶人包整理】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將本週收到的數十份「教師研習公文PDF」全部上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據上傳的公文，整理出一份本週『教師研習資訊報報』。請依據學科領域（如：語文、數理、藝術、輔導）分類，並以表格呈現：研習名稱、研習時間、報名代碼、以及『哪類老師強烈建議參加』。最後請生成一段適合放在學校網頁公告的100字摘要，把像沙威瑪一樣增生的資訊簡化成精簡清單。」<br>※註：如果能給AI一個「希望的範例格式」，AI輸出的準確度會從80%提升到95%。另外建議在指令中加入：「請以Markdown格式輸出，並使用粗體標記重點。」這會讓AI產出的內容更容易閱讀，老師直接剪貼到LINE或公文草稿時更省力。</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例五：協助撰寫公開授課教案摘要與說課簡報】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將「教學設計大綱」上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一位國中教學組長，下週有校外專家要來校參加公開授課。請幫我根據下方的教學設計大綱，產出一段300字的『教案摘要』，以及一份包含5張投影片大綱的『說課簡報建議』，讓專家能快速理解本次教學的核心目標與數位科技應用亮點。」</p>
+        </div>
+    </div>
+
+    <!-- 註冊組 -->
+    <div id="reg" class="mb-16">
+        <h4 class="font-semibold mb-4">註冊組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>獎學金申請發放、各類法定身分補助申請、各類證明文件核發、畢業生離校庶務、新生報到庶務、報部學籍、成績結算與預警、補考作業辦理。</p>
+
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1)各類補助法規繁雜且年年更新，家長常看不懂規定，導致註冊組電話接不完。<br>(2) 面對成績未達標或無法畢業的學生家長，需要極具溝通技巧的說明。<br>(3) 新生報到要收取的資料好多，如何最快速且有效率的處理？<br>(4) 學生三不五時來申請在學證明，每次都是壓跨我的最後一根稻草。<br>(5) 獎學金申請資訊好多要公告要收取，每項又都有不同的期限，如何精確掌控甘特圖。</p>
+        
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：打造專屬「補助問答機器人」】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將部端局端發布的數十頁「學雜費減免與弱勢補助辦法PDF」以及「校內獎學金規定」全部上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據文本，整理出『家長最常問的10個獎助學金問題(FAQ)』，請用國小家長也能看懂的白話文撰寫，並針對『低收入戶』與『原住民族』的申請條件與金額差異做比較表格，方便我印製成懶人包發放。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：高情商的「成績預警」溝通大師】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「校園親師溝通專家」的Gem，設定其說話風格為「溫暖、同理、專業且能提供建設性方案」<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位處理過無數親師衝突的資深註冊組長。我有一位學生因學分不足無法畢業，家長情緒激動。請幫我草擬一份正式的說明函，內容需包含：1.表達對學生學習狀況的關心2.說明法規上的畢業門檻3.提供後續補救教學或延修的方案建議。語氣要專業且能安撫家長情緒，避免官僚感。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：新生報到流程優化與資料清單】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將往年報到雜亂的繳交項目清單貼給Gemini，請其重新進行邏輯分類並視覺化。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我準備辦理國中新生報到，需要收取的資料包含：戶口名簿、畢業證書、健保卡影本、各類補助證明、服裝套量單等。請幫我：1.重新編排一份『報到檢核表』，依據繳交窗口進行邏輯分類。2.撰寫一段發給家長的簡訊通知，用條列式列出必帶物品。3.建議一個能讓報到現場動線最流暢的規劃方案。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：在學證明申請「自助導引」文案】(Gemini)</h5>
+            <p><strong>操作方式：</strong>請Gemini設計一套引導流程，減少學生直接衝進辦公室詢問的次數。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「學生常在最忙時來申請在學證明。請幫我寫一段要貼在註冊組門口或公布欄的『申請在學證明3步驟懶人包』。語氣要像吸睛的廣告文宣，讓學生一眼就能看懂：第一步要去哪拿表格、第二步要準備什麼、第三步要等多久。並請幫我想一個幽默的標語，提醒學生『行政老師也需要時間作業，無法即點即拿』。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例五：獎學金時程「甘特圖」規劃助手】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將本學期5-10 項不同獎學金的名稱、對象、截止日期輸入給Gemini。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「以下是本學期的8項獎學金資訊（貼上資訊）。請幫我建立一個表格，按『截止日期』先後排序，並在表格中增加一欄『行政作業提醒』，分別在截止日前7天標記『開始催件』、截止日前3天標記『彙整報核』。最後，請將這個表格轉換成適合我貼在行政行事曆上的進度說明。」</p>
+        </div>
+    </div>
+
+    <!-- 設備組 -->
+    <div id="equip" class="mb-16">
+        <h4 class="font-semibold mb-4">設備組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>專科教室/實驗室管理、教科書評選與分發、設備借用管理、創客/科學/數位學習計畫經費撰寫。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 常需要「無中生有」寫計畫向外部（如教育局、國教署）申請設備經費，耗費大量腦力。<br>(2) 資深教師對新興科技設備（如大屏、VR眼鏡）有抗拒感，需要撰寫極簡易的操作手冊。<br>(3) 同事或學生，借了東西弄壞或是不歸還，害我一直提心吊膽。</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：從零開始的「計畫撰寫神器」】(Gemini)</h5>
+            <p><strong>操作方式：</strong>給予Gemini關鍵字（如：AI輔助教學、智慧教室升級），並提供過往類似計畫的架構，請其生成具備說服力的經費申請計畫書。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一位國中設備組長，需要向教育局申請『智慧教室2.0設備更新計畫』共100萬經費。請幫我產出計畫書初稿，包含：1.申請動機（強調設備老舊影響學生受教權）2.計畫目標（符合數位轉型趨勢）3.預計採購清單與概算（如：86吋觸控大屏10台、平板電腦30台）4.預期效益。語氣要專業、具備前瞻性且充滿說服力。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：給長輩看的「三步驟極簡操作手冊」】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將複雜的新型設備（如：VR融入教學、互動大屏）說明書貼給Gemini，請其轉化為「完全不需大腦」的直覺操作步驟。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「學校剛進了一批86吋智慧觸控大屏，但資深老師非常抗拒使用。請幫我把複雜的說明書，改寫成一張給老師看的『救命小卡』。限制：只能有3個步驟，字體要大，不能有專業術語（例如：不要說『切換訊號源』，要說『按這顆藍色的鈕』），讓60歲的老師看了也會用，並用鼓勵的語氣減少他們的焦慮。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：溫柔而堅定的「設備守護者」Gem】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「設備組鋼鐵糾察隊」的Gem，設定其人格特質為「重視公物保護、講求規則、但不失禮貌」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位負責守護全校設備的糾察隊長。當有人借用東西逾期未還，或是弄壞實驗器材時，請幫我草擬一份正式通知。內容需涵蓋：1.提醒借用紀錄與逾期天數2.說明公物損壞對全校師生使用的影響3.明確給出修繕或歸還的期限。語氣要堅定，讓對方感受到行政規則的嚴肅，但不要帶情緒字眼，避免同事間的摩擦。」</p>
+
+        </div>
+    </div>
+
+    <!-- 訓育組 -->
+    <div id="train" class="mb-16">
+        <h4 class="font-semibold mb-4">訓育組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>班週會講座規劃、校外教學（畢旅、露營）、社團活動管理、品德教育宣導、學生會/自治會指導、校慶與畢業典禮籌辦。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 大型活動籌備繁瑣，且每年都需要新創意（如畢典主題），還要撰寫大量的活動流程與司儀講稿。<br>(2) 處理學生自治會的各種天馬行空要求。<br>(3) 班週會講座規劃，要邀請講師，如何極速寫出完善邀請信不失禮？<br>(4) 審核社團外聘老師資格，如何清楚傳達？<br>(5)	校外教學有好多待提醒事項，都忙不完了還要立刻馬上生出來！</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：大型活動「創意主題與司儀稿」產生器】(Gemini)</h5>
+            <p><strong>操作方式：</strong>給予Gemini活動關鍵字與預期氛圍（例如：畢業典禮、航向未來、感人但不煽情），請其發想主題並產出流程對話。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一所國中的訓育組長，正在籌備畢業典禮。請幫我發想3個符合今年流行趨勢的主題名稱（例如結合星際冒險或時空旅行）。選定後，請針對其中一個主題幫我寫一段『開場司儀稿』，語氣要莊重且帶動氣氛，並包含介紹校長上台、頒發畢業證書的串場詞，總長約5分鐘。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：學生自治會「天馬行空要求」回應助手】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「熱血又理性的學務指導老師」的Gem，設定其人格特質為「支持學生創意、但堅守學校行政規範與預算限制」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位深受學生喜愛的訓育組長。現在學生會提出想在校慶邀請百萬訂閱的網紅來校演講，但預算僅有5000元且有校園安全疑慮。請幫我草擬一份給學生的回覆信件，內容要肯定他們的創意，並用具體理由（如預算落差、場地限制）婉拒，同時引導他們思考是否有其他更具可行性的替代方案，以保護他們的熱情但不失行政專業。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：極速撰寫「專業講師邀請信」】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將講師的姓名、專業領域、講座主題、預定時間提供給Gemini，請其產出標準且有禮的正式邀請函。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我需要邀請一位專業講師來做『青少年情緒教育』班週會講座。請幫我撰寫一封正式邀請Email。內容需包含：1.為什麼邀請他（稱讚其專業領域）2.演講時間與地點3.講師鐘點費標準（依國教署規定）4.期待他能分享的核心內容。語氣要專業且展現誠意，並留出空格讓我填寫聯繫電話與交通接送細節。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：社團外聘老師「資格審核與規範」機器人】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將國教署的「中小學社團活動實施要點」以及「外聘教師資格審核相關規定PDF」上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據上傳的法規文件，幫我整理一份『社團外聘老師資格審核清單』。請明確列出：需要繳交哪些文件（如良民證、最高學歷影本）、哪類情況是不符合聘任資格的、以及社團外聘老師在校期間應遵守的5大紅線（如不可推銷產品、不可體罰學生）。這份清單要讓我能直接發給社團幹部與新聘老師參考。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例五：校外教學安全注意事項懶人包】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將校外教學相關資訊文件提供給Gemini，請其產出安全注意事項提醒。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我們預計下週進行九年級畢旅。請幫我針對長途遊覽車安全、飯店住宿規範、以及景點自由活動的注意事項，產出一段適合發送在班級群組給學生看的『安全注意事項懶人包』。語氣要輕鬆但重點要清楚（如：不單獨行動、注意集合時間）。」</p>
+        </div>
+    </div>
+
+    <!-- 生輔組/生教組 -->
+    <div id="studaff" class="mb-16">
+        <h4 class="font-semibold mb-4">生輔組/生教組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>出缺席與請假管理、獎懲作業、服儀檢查、校安通報、霸凌/性平事件防制與調查、交通安全與導護安排。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 處理學生衝突、霸凌案件後，需撰寫嚴謹、客觀、去情緒化的「事件調查報告」或向上級進行「校安通報」，用字遣詞若不當容易引發家長反彈或法律爭議。<br>(2) 如何精準掌控學生出缺席，並且和導師學生溝通提醒？</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：打造「中立客觀」的事件報告撰寫員】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「校園法律與行政文書專家」的Gem，設定其人格特質為「極度冷靜、用詞精準、去情緒化、嚴守法學敘事風格」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位專精於校園法規的行政顧問。我現在要處理一起『學生課間肢體衝突』，以下是我的原始觀察筆記（貼上：如誰先動手、在哪裡發生、現場誰目擊）。請幫我將這些雜亂的資訊轉化為一份正式的『校安事件初步調查報告』。要求：1.刪除所有主觀形容詞（如：惡意、囂張）2.以第三人稱敘述3.使用法律行政用語（如：『肇因於』、『實施其行為』）。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：霸凌與性平處理「SOP 流程導航儀」】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將「校園霸凌防制準則」、「性別平等教育法」以及「校安通報作業要點PDF」全部上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據上傳的法規，當我收到一起『疑似網路霸凌』的通報時，請列出我接下來24小時內、3天內、以及7天內必須完成的法規動作清單。並請幫我檢查：如果學生是在校外補習班發生的衝突，學校是否仍具備通報與受理調查的義務？請直接引述條文回答。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：高情商的「出缺席異常」提醒信】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將出缺席系統中異常的名單與天數提供給Gemini，請其撰寫一份發給導師的溫馨提醒，將「監督」轉化為「關懷」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一所國中的生教組長。有幾位學生這週無故缺席已達3天，我需要發訊息請導師協助追蹤。請幫我寫一段給導師的LINE訊息，語氣要充滿體諒（知道導師班務繁忙），但要明確表達『我們擔心學生的安全，且依規定需進行中輟預警』，讓導師感受到行政端是在協助他分擔風險，而不是在催辦業務。」</p>
+        </div>
+    </div>
+
+    <!-- 衛生組 -->
+    <div id="health" class="mb-16">
+        <h4 class="font-semibold mb-4">衛生組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>全校掃區分配與評分、資源回收管理、傳染病防治（登革熱、腸病毒、流感）、健康促進計畫、廁所美化。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 	防疫與衛生宣導資料生硬，要宣傳什麼有看沒有懂，貼在公佈欄根本沒有學生看<br>(2) 打掃區域分配是「得罪人」的工作，常引發各班導師抱怨勞逸不均。<br>(3) 學生回收做不到位，提醒再提醒，但似乎就是聽不懂？</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：防疫公文「重點懶人包」快速提煉】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將疾管署或教育局發布的最新「校園傳染病防治因應指引PDF」上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據這份最新的防疫指引，幫我整理出『老師最需要知道的5件事』。請用條列式說明：1.學生發燒幾度不能入校？2.班級達到多少比例需停課？3.停課期間的補課原則。並將其轉化為適合貼在學校老師LINE群組的簡短公告，讓我不用再手動翻閱數十頁的公文。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：生硬衛教文宣「迷因化」轉譯】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將長篇大論的衛教手冊（如：腸病毒防治、校園登革熱指引）貼給Gemini，要求其以社群媒體思維重新創作。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請把這份1000字的『腸病毒與流感防治手冊』，改寫成5張Instagram貼文的圖文腳本（Carousel格式）。目標受眾是國中生，請使用當下流行的網路迷因梗或幽默對話（例如：這是我沒洗手的樣子vs這是洗完手帥氣的我），讓他們願意看完並記得洗手。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：掃區分配公平性說明信】(Gemini)</h5>
+            <p><strong>操作方式：</strong>提供掃區分配的邏輯參數（如：班級總人數、落葉量權重、廁所間數）給Gemini，產出具備說服力的解釋文。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是衛生組長，剛排完新學期的掃區。請幫我寫一封信給全體導師，說明『今年掃區是依據各班人數與掃區面積、難易度進行權重分配』的邏輯，並感謝導師的協助。語氣要謙和，並強調我們已盡力縮小各班工作量的誤差，預防導師產生『被刻意刁難』的誤會。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：高情商的「回收室亂象」柔性勸導】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「校園環保親善大使」的Gem，設定其說話風格為「充滿熱情、正向積極、但不失威信」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位致力於校園環保的推動者。最近學生回收分類做得很差，回收室堆滿雜物。請幫我寫一段要在升旗時宣導的講稿。語氣不要用『責備』或『禁止』，而是用『我們一起守護地球』的溫暖訴求，並具體點出：請把飲料瓶沖乾淨、紙箱要拆平，讓回收阿姨不再流汗辛苦。字數200字。」</p>
+        </div>
+    </div>
+
+    <!-- 體育組 -->
+    <div id="pe" class="mb-16">
+        <h4 class="font-semibold mb-4">體育組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>校慶運動會籌辦、體適能檢測與資料上傳、校隊/體育班管理、體育器材借用與維護、各類單項運動賽事。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 運動會是龐大的系統工程，包含賽程安排、雨天備案、檢錄動線，細節極多。<br>(2) 需要熱血運動會轉播/司儀，怎麼培訓？<br>(3) 常需要撰寫體育器材報廢與添購的理由書。<br>(4) 面對體適能，學生囉哩叭唆，一直盧小小。</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：運動會「雨天備案」與動線邏輯規劃】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將原本的晴天賽程表貼給Gemini，請其針對場地縮減後的狀況，重新排定雨天縮減版賽程。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我正在籌備全校運動會，原本是兩天的賽程。請幫我擬定一份『雨天備案計畫』。要求：1.僅保留大隊接力與決賽項目，並移至體育館舉行。2.規劃體育館內的檢錄區、預備區與觀賽區的動線邏輯，避免人流碰撞。3.撰寫一段要在廣播中宣讀的『因雨啟動備案公告』，語氣要穩定且指令清晰，避免全校師生混亂。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：熱血又專業的「運動會轉播/司儀」Gem】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「校園熱血體育主播」的Gem，設定其人格特質為「專業、激勵人心、具備臨場反應能力」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位專業的體育主播。現在是全校大隊接力的最後衝刺階段，請幫我寫三段不同情境的司儀稿：1.雙方平手時的激勵2.領先班級的讚嘆3.學生不慎跌倒但努力站起來的感人旁白。語氣要像體育頻道轉播一樣充滿張力，讓全校氣氛燃燒到最高點！」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：器材汰舊換新的「預算爭取說服術」】(Gemini)</h5>
+            <p><strong>操作方式：</strong>條列目前損壞器材的名單（如：足球漏氣、跳箱皮墊破損、墊子發霉），請Gemini撰寫具備專業度與安全高度的請購單理由。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我需要撰寫一份體育器材添購理由書。目前校內墊子已使用10年且多處破損、發霉。請幫我產出一段300字的理由：要從『學生運動安全預防』、『降低校園意外意外賠償風險』以及『符合最新體育教學指標』三個面向來撰寫，語氣要專業且迫切，讓校長與總務主任感受到這筆預算非花不可，否則會有法律安全疑慮。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：體適能測驗法規與「免測申請」自動答詢】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將「教育部學生體適能測驗實施要點」與「特殊生/受傷學生免測申請法規PDF」上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據上傳的文件，整理一份『體適能測驗FAQ』給各班導師。請重點回答：1.哪些疾病診斷證明可以申請免測？2.補測的期限為何？3.如何針對體適能成績不佳的學生進行後續輔導？請用白話的條列式呈現，減少老師查閱厚重法規的時間。」</p>
+        </div>
+    </div>
+
+    <!-- 輔導組 -->
+    <div id="counsel" class="mb-16">
+        <h4 class="font-semibold mb-4">輔導組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>偏差行為/高關懷個案管理、小團體輔導規劃、生命教育/性平教育/家庭教育宣導、親職講座辦理、校內教師輔導知能研習時數。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 輔導紀錄需要客觀詳實撰寫，耗費大量打字時間。<br>(2) 辦宣導講座就夠累了，還要設計宣導講座的前後測問卷來核銷經費。<br>(3) 面對高危機個案（如自傷），行政流程與通報網絡的聯繫極其消耗心神。<br>(4) 教師有時比學生還難盯，一直不回報研習時數給我！</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：雜亂語音筆記變身「專業輔導紀錄」】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將諮商後的碎片段落、關鍵字或語音轉文字的草稿（注意需去識別化，不含學生姓名）提供給Gemini，請其轉化為專業紀錄格式。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一位國中輔導老師，剛完成一節諮商。以下是我的觀察筆記碎片的關鍵字：『情緒低落、與家長爭吵、學業壓力大、出現負面思考、已約定下次晤談時間』。請幫我將這些內容整理成一份正式的『個別輔導紀錄』。要求：1.使用客觀且專業的敘事（如：『案主自述...』、『輔導員觀察到...』）2.採取S.O.A.P格式撰寫3.去除所有情緒化主觀判斷，確保紀錄具備法律與臨床參考價值。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：秒速生成「宣導講座前後測」問卷】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將講座的主題、大綱或講師簡報內容貼給Gemini，請其產出符合評量邏輯的問卷題目。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「學校下週要辦理一場『預防網路成癮與情感教育』講座。請幫我設計一份給學生填寫的問卷，包含：1.3題『前測』題目，測試學生對網路成癮定義的認知。2.5題『後測』題目，內容需對應講座可能提到的應對技巧。3.一題5分量表的滿意度調查。請確保題目淺顯易懂，適合國中生閱讀，並方便我後續做經費核銷的成效分析。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：高危機個案「跨網絡聯繫」溝通專家】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「校園危機處理協調官」的Gem，設定其人格特質為「沉穩、嚴謹、精通跨部會通報語境」。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位資深的輔導組長。目前校內發生一起高危機個案，我需要緊急聯繫社工師與轄區派出所。請幫我擬定一封正式的協調聯繫信件。內容需涵蓋：1.案發經過簡述（客觀客觀再客觀）2.目前學校已採取的保護措施3.明確提出需要外部資源支援的項目（如陪同就醫或緊急安置）。語氣要極度嚴肅、專業，且符合《學生安全通報作業要點》的規範。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：法規與通報流程「防錯導航」】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將「學生通報作業流程PDF」、「校園性侵害性騷擾或性霸凌防治準則」及「兒少權法通報條文」全部上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據上傳的法規，當老師回報學生身上有不明傷痕且疑似家庭暴力時，請幫我列出『行政端必做的黃金流程』。請明確告知：1.在幾小時內必須完成校安通報與社政通報？2.除了輔導紀錄外，還需要蒐集哪些證據？3.在法規中，輔導老師是否有權力在未經家長同意下直接進行保護處置？請引述具體法規條文回答。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例五：幽默卻有感的「研習時數催繳」文案】(Gemini)</h5>
+            <p><strong>操作方式：</strong>請Gemini針對老師常遺漏回報研習時數的痛點，撰寫一段讓人不忍拒絕的提醒。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是輔導組長，需要老師們回傳本學期的輔導研習時數證明。請幫我寫一段LINE訊息。語氣要幽默、體諒老師『被課表淹沒、被學生煩死』的處境，但要委婉表達『統計數據如果缺你一個，我就會被上級盯死』的難處。最後附上一個清晰的填表範例與截止日期，讓老師們能在1分鐘內完成回報，不要讓他們覺得這是繁瑣的行政負擔。請提供「三種不同語氣的版本」（例如：溫和感性版、理智客觀版、堅定嚴肅版），可以根據師長性格挑選。」</p>
+        </div>
+    </div>
+
+    <!-- 資料組/特教組 -->
+    <div id="data" class="mb-16">
+        <h4 class="font-semibold mb-4">資料組/特教組</h4>
+        <p class="mb-6"><strong>重大行政庶務：</strong>各類心理測驗（智力、性向、興趣）實施與結果解釋、生涯發展檔案（學習歷程）建置、技藝教育學程辦理、特教學生資料建檔與IEP 會議。</p>
+<p class="mb-6"><strong>實務要點與困境：</strong><br>(1) 心理測驗數據龐大且充滿專業術語（如PR值、何倫碼），向家長解釋時常遇到「知識詛咒」，家長聽不懂。<br>(2) 特教IEP（個別化教育計畫）的撰寫需要針對每個孩子客製化，極度費時。</p>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例一：專業測驗數據的「大白話轉譯器」】(Gemini)</h5>
+            <p><strong>操作方式：</strong>將心理測驗（如：智力測驗、何倫碼興趣測驗）的專業定義與學生的數據結果貼給Gemini，請其用平易近人的語言改寫。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是一位國中輔導老師，要向家長解釋學生的『何倫碼(Holland)』測驗結果。學生類型是實作型(R)與藝術型(A)。請幫我把這些專業術語改寫成『國小程度也能聽懂』的白話文。不要提到PR值或量表分數等術語，請用比喻的方式（例如：描述孩子像什麼樣的職人），並給家長3個具體的在家引導建議，幫助我打破知識詛咒。另外，將測驗結果轉化為300字以內，適合發送在班級群組的科普小短文」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例二：IEP 客製化目標的「關鍵字生成器」】(Gemini 的Gem)</h5>
+            <p><strong>操作方式：</strong>建立一個名為「特教IEP專業撰寫助手」的Gem，設定其精通「SMART原則」並熟悉特教指標。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「（Gem設定角色任務）你是一位資深的特教老師。我現在要幫一位『輕度自閉症』學生撰寫IEP年度目標。學生的起點行為是：『在人際互動中常因誤解對方情緒而發生口角』。請幫我產出3個具體且可測量的年度目標。要求：1.符合SMART原則（明確、可衡量、可達成）2.包含執行條件與通過標準（例如：在老師引導下，10次中有8次能正確認識對方表情）。請用專業且符合特教評鑑的語法撰寫。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例三：IEP 法規與「目標銀行」資料庫管理】(NotebookLM)</h5>
+            <p><strong>操作方式：</strong>將「特殊教育法」、「IEP撰寫指引手冊」以及過往累積的「優良目標範例銀行PDF」全部上傳至NotebookLM。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「請根據上傳的資料，整理出針對『學習障礙學生』在『語文領域』與『社會情緒領域』最常見的10個年度目標範例。當我輸入一位學生的具體困難點（例如：識字量極少）時，請從資料庫中檢索並推薦最適合他的教學策略與評量方式，讓我能快速挑選並進行客製化微調。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例四：高危機個案「跨網絡聯繫」溝通專家】(Gemini)</h5>
+            <p><strong>操作方式：</strong>面對需要跨部會協調的緊急個案，請Gemini擬定邏輯清晰、責任分界明確的公務聯繫信。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「目前校內發生一起學生自傷高危機案件，我需要聯繫轄區社工師與心理師。請幫我擬定一份聯繫信函。內容需包含：1.案件發生的時序（客觀敘述）2.學校已採取的緊急處置3.請求外部支援的具體事項（如：個案轉介或家庭访視配合）。語氣要專業嚴謹且具有急迫感，並確保用詞符合個資保護與通報規範。」</p>
+        </div>
+        <div class="bg-emerald-50 p-8 rounded-3xl mb-8">
+            <h5 class="font-bold text-lg mb-3">【實例五：幽默卻有感的「輔導紀錄催繳」訊息】(Gemini)</h5>
+            <p><strong>操作方式：</strong>針對老師常遺漏回報研習時數或紀錄的痛點，撰寫一段讓人不忍拒絕的提醒。<br><strong>進階指令：</strong><button class="copy-btn" onclick="copyPrompt(this)" title="複製指令"><i class="fa-regular fa-copy"></i></button>「我是輔導組長，需要導師回傳本學期的輔導紀錄。請幫我寫一段LINE訊息。語氣要幽默、體諒老師『被課表淹沒、被學生煩死』的處境，但要委婉表達『如果紀錄缺了你，我就會被上級盯死，甚至影響學校評鑑』的難處。最後附上一個清晰的填表範例，讓老師們覺得這件事只要1分鐘就能搞定，減少阻力。」</p>
+        </div>
+    </div>
+</section>
+
+<!-- 第三部分 -->
+<section id="part3" class="scroll-mt-24 bg-gradient-to-r from-amber-50 to-white rounded-3xl p-6 sm:p-12 shadow-2xl mb-16">
+    <h2 class="text-2xl sm:text-4xl font-bold text-amber-700 mb-10 flex items-center gap-3"><i class="fa-solid fa-swords"></i> 第三部分　神兵利器分析——NotebookLM、Gemini、Gemini 的Gem 使用決策樹</h2>
+    <div class="overflow-x-auto -mx-6 sm:mx-0 mb-12">
+        <table class="w-full border-collapse text-sm sm:text-base min-w-[700px] sm:min-w-0">
+            <thead class="bg-amber-700 text-white"><tr><th class="p-4 sm:p-5">比較工具</th><th class="p-4 sm:p-5">NotebookLM</th><th class="p-4 sm:p-5">Gemini</th><th class="p-4 sm:p-5">Gemini 的Gem</th></tr></thead>
+            <tbody class="divide-y">
+                <tr><td class="p-4 sm:p-5 font-medium">扮演角色</td><td class="p-4 sm:p-5">你的專屬數位大腦</td><td class="p-4 sm:p-5">全能的創意助手</td><td class="p-4 sm:p-5">你的客製化員工</td></tr>
+                <tr><td class="p-4 sm:p-5 font-medium">運作核心</td><td class="p-4 sm:p-5">RAG(檢索增強生成) 只根據「你上傳的資料」回答。</td><td class="p-4 sm:p-5">廣泛的大語言模型 根據全網資料與訓練數據回答。</td><td class="p-4 sm:p-5">自訂角色的大語言模型 記住你的預設身分、語氣與規則。</td></tr>
+                <tr><td class="p-4 sm:p-5 font-medium">最大優勢</td><td class="p-4 sm:p-5">沒有幻覺，能處理多個超長PDF，並產出Podcast 導讀、簡報…。</td><td class="p-4 sm:p-5">反應極快、創意無限，具備連網搜尋能力，適合靈感發想。</td><td class="p-4 sm:p-5">免除重複打提示詞的麻煩，確保產出格式與語氣的高度一致性。</td></tr>
+                <tr><td class="p-4 sm:p-5 font-medium">班級經營</td><td class="p-4 sm:p-5">讓AI 閱讀幾十頁的《學生手冊》，整理出重點懶人包給班上同學。</td><td class="p-4 sm:p-5">發想班會討論主題、草擬家長會邀請函、快速回覆家長的LINE。</td><td class="p-4 sm:p-5">建立「嚴父慈母Gem」，專門幫你把生氣的情緒轉化為專業的親師溝通文字。</td></tr>
+                <tr><td class="p-4 sm:p-5 font-medium">行政實務</td><td class="p-4 sm:p-5">上傳各項繁雜法規(如請假規則、採購法)，當作法規查詢的超級辭典。</td><td class="p-4 sm:p-5">撰寫公文草稿、活動企劃書、會議紀錄摘要、致詞講稿。</td><td class="p-4 sm:p-5">建立各處室專屬機器人：如「生輔組通報撰寫機」、「教務處計畫產生器」。</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 class="font-bold mb-4">自問自答流程圖</h4>
+    <p class="mb-8">「我有大量PDF/Word檔案要讀取嗎？」→是 → NotebookLM<br>「我要寫感人的講稿或想創意點子嗎？」→是 → Gemini<br>「這個任務我每週都要重複做嗎？」→是 → Gemini 的Gem</p>
+    <h4 class="font-bold mb-4">AI 教育行政「黃金工作流」</h4>
+    <div class="overflow-x-auto -mx-6 sm:mx-0">
+        <table class="w-full border-collapse text-sm sm:text-base min-w-[800px] lg:min-w-0">
+            <thead><tr class="bg-emerald-700 text-white"><th class="p-4 sm:p-5">階段</th><th class="p-4 sm:p-5">任務</th><th class="p-4 sm:p-5">目標</th><th class="p-4 sm:p-5">操作</th></tr></thead>
+            <tbody class="divide-y">
+                <tr><td class="p-4 sm:p-5">第一階段</td><td class="p-4 sm:p-5">建立「事實錨點」（使用NotebookLM）</td><td class="p-4 sm:p-5">確保AI 說的話都有憑有據，避免「幻覺」</td><td class="p-4 sm:p-5">將所有「生硬資料」上傳至NotebookLM（如：校規、教育部最新公文、輔導手冊、學生去識別化表現紀錄）。<br>提煉重點：詢問NotebookLM：「根據這份公文，老師處理這類衝突的法定流程是什麼？」或「這名學生過去三個月的行為模式有哪些轉變？」<br>產出：獲得一份精準、無誤的摘要或事實清單。
+                </td></tr>
+                <tr><td class="p-4 sm:p-5">第二階段</td><td class="p-4 sm:p-5">策略開發與創意實驗（使用Gemini）</td><td class="p-4 sm:p-5">將生硬的事實轉化為「有溫度、有策略」的草案。</td><td class="p-4 sm:p-5">將第一階段得到的「事實清單」貼給Gemini。<br>進行對話實驗：測試不同的語氣與策略。指令範例：「根據這份處理流程（來自NotebookLM），請幫我設計三種不同的溝通腳本：一種是對高壓型家長、一種是對疏離型家長、一種是對學生本人。」<br>優化指令：在對話過程中，你會發現哪些關鍵字（例如：非暴力溝通、三明治法）產出的效果最好。<br>產出：確定一套最符合你風格的「最強指令（Prompt）」。
+                </td></tr>
+                <tr><td class="p-4 sm:p-5">第三階段</td><td class="p-4 sm:p-5">打造「數位分身」自動化（使用Gemini 的Gem）</td><td class="p-4 sm:p-5">將成功的經驗「模組化」，以後遇到類似事件，一秒鐘產出高品質結果。</td><td class="p-4 sm:p-5">開啟「Gem」功能，創建一個專屬機器人（例如：「親師通訊盾牌」或「公文轉譯神捕」）。<br>設定系統指令（SystemPrompt）：將第二階段實驗出最成功的角色設定、語氣規範、格式要求填入。<br>連動應用：以後當你收到新的公文或發生新的學生事件，直接進入這個「Gem」。輸入：「這是今天的事件紀錄：[貼上內容]」。結果：Gem會自動根據你設定的「高EQ模式」與「法規準確性」直接產出最後的LINE訊息或報告。
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 class="font-bold mt-12 mb-4">實戰案例：處理「學生校內抽菸」事件</h4>
+    <ol class="list-decimal pl-6 space-y-6 text-base">
+        <li>NotebookLM(查閱法規)：上傳《菸害防制法》與《校規》。<br>問：「校內抽菸的法定罰則與學校必須通報的時限為何？」<br>獲得：確定的法律條號與24 小時通報限制。</li>
+        <li>Gemini(策略發想)：輸入：上述罰則+學生平時很叛逆但重視義氣。<br>問：「如何用『不說教』的方式…寫一段能讓這名學生聽進去的勸導詞？請試三種語氣。」<br>獲得：一個結合法律後果與情感勒索的完美腳本。</li>
+        <li>Gemini'sGem(固定模組)：建立一個名為「叛逆學生收服者」的Gem。<br>系統指令：「你是一位善於運用青少年次文化語法，並能精準嵌入校規條文的資深導師。產出格式永遠包含：1.同理連結2.事實後果3.台階與承諾。」<br>只要輸入「小明又被抓到抽菸了」，機器人直接產出最合適的談話稿。</li>
+    </ol>
+</section>
+
+<!-- 第四部分 -->
+<section id="part4" class="scroll-mt-24 bg-white rounded-3xl p-6 sm:p-12 shadow-2xl mb-16">
+    <h2 class="text-2xl sm:text-4xl font-bold text-rose-700 mb-10 flex items-center gap-3"><i class="fa-solid fa-scale-balanced"></i> 第四部分　AI時代的教育倫理與哲學反思</h2>
+    <div class="space-y-10 text-lg">
+        <p>做為未來的領導型教育工作者，技術可以外包，但教育的核心價值與法律底線絕對不能外包。</p>
+        <div class="bg-rose-50 p-8 rounded-3xl">
+            <h4 class="font-bold mb-3">1. 資料隱私的紅線(個資法)</h4>
+            <p>嚴重警告：錯誤寫法：「302班的王大明今天在走廊打人。」正確寫法：「某高三學生A今日在公共區域與同學發生肢體衝突。」所有輸入AI的資訊必須先進行去識別化處理，將學生的真實姓名、身分證字號、家庭背景、輔導紀錄（如受虐、自傷紀錄）輸入到雲端AI，可能直接面臨解聘與法律訴訟。<br>專業作法：養成「本地端去識別化」的直覺。使用代號（StudentX），抽象化描述（將「住信義區豪宅」改為「高社經背景」）。
+</p>
+        </div>
+        <div class="bg-rose-50 p-8 rounded-3xl">
+            <h4 class="font-bold mb-3">2. 避免「認知去技能化」</h4>
+            <p>可以讓AI幫忙寫教案、寫公文，但不能失去判斷好壞的品味與邏輯能力，如果連底層邏輯都沒有了，將從「教育家」淪為「AI轉述者」。<br>AI生成的結果僅為草案，必須經過人類的法律視角與專業判斷審核，例如：AI建議的懲處是否符合該校校規？公文送出、家長信寄出前，必須100%進行Human-in-the-loop(人類介入)審閱。AI捏造的一條假校規，可能吃上家長投訴的官司。
+</p>
+        </div>
+        <div class="bg-rose-50 p-8 rounded-3xl">
+            <h4 class="font-bold mb-3">3. 演算法偏見與公平性</h4>
+            <p>AI訓練資料多來自西方或特定主流文化。當你用AI評估學生的行為或提供升學建議時，它可能會對弱勢族群、偏鄉學生產生潛在偏見。教師必須具備「文化回應教學(CRT)」的批判性思維來修正AI的輸出。</p>
+        </div>
+        <div class="bg-rose-50 p-8 rounded-3xl">
+            <h4 class="font-bold mb-3">4. 教育的靈魂：不可取代的「關係與溫度」</h4>
+            <p>AI能寫出最完美的「關懷信」，但學生真正需要的，是你下課後走到他座位旁，拍拍他的肩膀說：「老師有注意到你最近比較累，還好嗎？」<br>終極哲學：我們使用AI提升行政效率，是為了「買回」我們當初選擇當老師的時間——那些用來陪伴生命、啟發思考、在課堂上看到學生眼神發光的時間。
+</p>
+        </div>
+    </div>
+</section>
+
+<!-- 快樂鯉魚AI心法 -->
+<section id="heart" class="bg-gradient-to-br from-emerald-700 to-teal-700 text-white rounded-3xl p-8 sm:p-16 text-center">
+    <h2 class="text-3xl sm:text-5xl font-bold mb-12 flex items-center justify-center gap-4"><i class="fa-solid fa-heart"></i> 快樂鯉魚AI心法</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6">1. 通用咒語框架：[角色設定]+[背景資訊與任務]+[限制條件]+[期望語氣與格式]。</div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6">2. 工作流金句：「NotebookLM 負責守法，Gemini 負責變法，Gem 負責執法。」</div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6">3. 只有那種「每週都會發生」或「處理起來最痛苦」的事務（如：親師溝通、研習報報、IEP 目標撰寫），才值得花 5 分鐘去建立專屬 Gem。</div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6">4. 動態更新：建議每學期將 NotebookLM 裡的資料更新一次，保持「黃金工作流」在最新狀態。<br>記得刪除舊有的來源檔案並上傳新版。</div>
+    </div>
+    <p class="mt-12 text-lg sm:text-xl max-w-2xl mx-auto px-4">未來的優勢教師，不是不兼行政的人，而是「懂得用AI 快速解決行政雜務，把節省下來的時間與精力，重新投資在學生與教學上」的人。不要讓繁雜的體制消磨你的才華。<br>成為教育現場的「行政駭客」與「班級 CEO」，用科技處理冰冷的例行公事，用大腦與溫和的心影響下一個世代。<br>重點是，要當個快樂教師。有快樂的教師，才有快樂的學生。</p>
+</section>
+
+</main>
+</div>
+
+<!-- 吉祥物 (僅在桌面版顯示，且位置不重疊內容) -->
+<div id="mascot" class="hidden xl:block fixed bottom-8 left-8 z-[9999] w-32 draggable pointer-events-none sm:pointer-events-auto">
+    <img src="image/LiyuChillGuy.svg" alt="快樂鯉魚大吉" class="neon-glow w-full drop-shadow-2xl">
+</div>
+
+
+<!-- FOOTER -->
+<footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 text-center">
+        <p class="text-base sm:text-lg opacity-90">Copyright © Liyuchiutiger Gongminshen</p>
+        <p class="text-[10px] sm:text-xs mt-3 opacity-60 uppercase tracking-widest">AI及數位科技如何幫助班級經營與行政雜務？</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('mouseup', () => isDragging = false);
+
+
+    // Mobile TOC Functionality
+    const toggle = document.getElementById('toc-toggle');
+    const close = document.getElementById('toc-close');
+    const overlay = document.getElementById('toc-overlay');
+    const drawer = document.getElementById('toc-drawer');
+    const desktopTocLinks = document.querySelector('.lg\\:block .toc')?.innerHTML;
+    const mobileTocLinks = document.getElementById('mobile-toc-links');
+
+    if (desktopTocLinks && mobileTocLinks) {
+        mobileTocLinks.innerHTML = desktopTocLinks;
+        // Close drawer when clicking a link
+        mobileTocLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeDrawer();
+            });
+        });
+    }
+
+    function openDrawer() {
+        overlay.classList.remove('hidden');
+        setTimeout(() => {
+            overlay.classList.add('opacity-100');
+            drawer.classList.remove('translate-x-full');
+        }, 10);
+    }
+
+    function closeDrawer() {
+        overlay.classList.remove('opacity-100');
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 300);
+    }
+
+    toggle?.addEventListener('click', openDrawer);
+    close?.addEventListener('click', closeDrawer);
+    overlay?.addEventListener('click', (e) => {
+        if (e.target === overlay) closeDrawer();
+    });
+
+    tailwind.config = {
+        theme: {
+            extend: {
+                screens: {
+                    'xs': '475px',
+                }
+            }
+        }
+    };
+
+    function copyPrompt(btn) {
+        let textToCopy = "";
+        const parent = btn.parentElement;
+        
+        // Clone the parent to avoid modifying the live DOM
+        const clone = parent.cloneNode(true);
+        // Remove the copy button from the clone
+        const btnInClone = clone.querySelector('.copy-btn');
+        if (btnInClone) btnInClone.remove();
+        
+        // Get text content
+        let text = clone.innerText.trim();
+        
+        if (parent.tagName === 'PRE') {
+            textToCopy = text;
+        } else {
+            // For paragraph/list items, remove the label prefix if it exists
+            // We search for the label and take everything after it
+            const labels = ["進階指令：", "指令範例：", "操作方式："];
+            let labelFound = false;
+            for (const label of labels) {
+                if (text.includes(label)) {
+                    textToCopy = text.split(label)[1].trim();
+                    labelFound = true;
+                    break;
+                }
+            }
+            
+            if (!labelFound) {
+                textToCopy = text;
+            }
+
+            // Remove trailing notes starting from ※註：
+            const noteIdx = textToCopy.indexOf('※註');
+            if (noteIdx !== -1) {
+                textToCopy = textToCopy.substring(0, noteIdx).trim();
+            }
+        }
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const icon = btn.querySelector('i');
+            const originalClass = icon.className;
+            icon.className = 'fa-solid fa-check';
+            btn.classList.add('copied');
+            
+            setTimeout(() => {
+                icon.className = originalClass;
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+</script>
+</body>
+</html>
